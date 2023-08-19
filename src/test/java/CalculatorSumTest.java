@@ -3,6 +3,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,11 +19,11 @@ public class CalculatorSumTest {
     }
 
     @ParameterizedTest
-    @ValueSource(longs = {1_000, 20_000, 300_000, 123_456_789})
+    @CsvSource({"10, 20, 30", "333, 1, 334", "234322, 8987787865, 8988022187"})
     @Order(1)
     @DisplayName("Test sumLong method: Parameterized")
-    public void testCalculatorSumLong(long result, Calculator calculator) {
-        assertEquals(result, calculator.sumLong(0, result));
+    public void testCalculatorSumLong(long a, long b, long result, Calculator calculator) {
+        assertEquals(result, calculator.sumLong(a, b));
     }
 
     @Test
