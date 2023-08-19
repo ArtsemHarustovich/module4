@@ -2,8 +2,12 @@ import java.text.DecimalFormat;
 import java.util.SortedMap;
 
 public class Calculator {
+    private double a;
+    private double b;
 
-    public Calculator() {
+    public Calculator(double a, double b) {
+        this.a = a;
+        this.b = b;
     }
 
     public long sumLong(long a, long b) {
@@ -30,7 +34,7 @@ public class Calculator {
         return a * b;
     }
 
-    public long divLong(long a, long b) { // проверить деление на ноль, возможно стоит поменять тип исключения (арифметик эксепшн)
+    public long divLong(long a, long b) {
         if (b == 0L) {
             throw new ArithmeticException("Attempt to divide by zero");
         } else {

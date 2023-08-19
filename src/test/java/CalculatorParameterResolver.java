@@ -11,6 +11,6 @@ public class CalculatorParameterResolver implements ParameterResolver {
 
     @Override
     public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
-        return new Calculator();
+        return new Calculator(0, 0);
     }
 }
